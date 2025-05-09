@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quần Ống Rộng Kẻ Sọc - Flash Sale</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Thêm Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Banner Khuyến Mãi -->
+    <div class="promo-banner">
+        <div class="marquee">
+            <span>🔥 Flash Sale - Giảm Giá Sốc 🔥 Chỉ còn <span class="highlight">199K</span> - Miễn phí vận chuyển toàn quốc 🚚</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>THỜI TRANG AQUEEN</h1>
+        </div>
+    </header>
+
+  
+    <!-- Phần chính - Sản phẩm -->
+    <main>
+        <!-- Hình ảnh sản phẩm -->
+        <section class="product-images">
+            <div class="main-image">
+                <img src="images/1.jpg" alt="Quần Ống Rộng Kẻ Sọc" id="mainImage">
+            </div>
+            <div class="thumbnail-container">
+                <div class="thumbnail active" onclick="changeImage('images/1.jpg', this)">
+                    <img src="images/1.jpg" alt="Quần Ống Rộng Kẻ Sọc - Mặt trước">
+                </div>
+                <div class="thumbnail" onclick="changeImage('images/2.jpg', this)">
+                    <img src="images/2.jpg" alt="Quần Ống Rộng Kẻ Sọc - Mặt sau">
+                </div>
+                <div class="thumbnail" onclick="changeImage('images/3.jpg', this)">
+                    <img src="images/3.jpg" alt="Quần Ống Rộng Kẻ Sọc - Chi tiết">
+                </div>
+                <div class="thumbnail" onclick="changeImage('images/5.jpg', this)">
+                    <img src="images/5.jpg" alt="Quần Ống Rộng Kẻ Sọc - Phối đồ">
+                </div>
+                <div class="thumbnail" onclick="changeImage('images/4.jpg', this)">
+                    <img src="images/4.jpg" alt="Quần Ống Rộng Kẻ Sọc - Phối đồ">
+                </div>
+            </div>
+        </section>
+       
+
+        <!-- Thông tin sản phẩm -->
+        <section class="product-info">
+            <h2>Quần Ống Rộng Kẻ Sọc Thời Trang</h2>
+            <div class="price-container">
+                <div class="price">
+                    <span class="current-price">199.000₫</span>
+                    <span class="original-price">299.000₫</span>
+                    <span class="discount-tag">-33%</span>
+                </div>
+            </div>
+            
+            <!-- Số lượng đã bán -->
+            <div class="sold-container">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                </div>
+                <div class="sold-text">
+                    <i class="fas fa-fire"></i> Đã bán 73/100 sản phẩm
+                </div>
+            </div>
+               <!-- Thông tin Flash Sale -->
+    <div class="flash-sale-container">
+        <div class="flash-sale-header">
+            <div class="flash-sale-title">
+                <i class="fas fa-bolt"></i> FLASH SALE
+            </div>
+            <div class="countdown-container">
+                <div class="countdown-label">Kết thúc sau:</div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span id="hours">02</span>
+                        <span class="countdown-label">Giờ</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span class="countdown-label">Phút</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span class="countdown-label">Giây</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <!-- Lựa chọn kích thước -->
+            <div class="size-selection">
+                <h3>Kích thước:</h3>
+                <div class="size-options">
+                    <button class="size-btn" data-size="S">S</button>
+                    <button class="size-btn" data-size="M">M</button>
+                    <button class="size-btn" data-size="L">L</button>
+                    <button class="size-btn" data-size="XL">XL</button>
+                    <button class="size-btn" data-size="XXL">XXL</button>
+                </div>
+            </div>
+            
+            <!-- Lựa chọn màu sắc -->
+            <div class="color-selection">
+                <h3>Màu sắc:</h3>
+                <div class="color-options">
+                    <button class="color-btn active" data-color="Sọc đen">
+                        <span class="color-circle" style="background: linear-gradient(45deg, #000 25%, #fff 25%, #fff 50%, #000 50%, #000 75%, #fff 75%, #fff 100%); background-size: 10px 10px;"></span>
+                        <span class="color-name">Sọc đen</span>
+                    </button>
+                    <button class="color-btn" data-color="Sọc hồng">
+                        <span class="color-circle" style="background: linear-gradient(45deg, #ff69b4 25%, #fff 25%, #fff 50%, #ff69b4 50%, #ff69b4 75%, #fff 75%, #fff 100%); background-size: 10px 10px;"></span>
+                        <span class="color-name">Sọc hồng</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bảng kích thước -->
+            <div class="size-guide">
+                <h3>Bảng kích thước:</h3>
+                <table>
+                    <tr>
+                        <th>Size</th>
+                        <th>Vòng eo (cm)</th>
+                        <th>Chiều dài quần (cm)</th>
+                        <th>Cân nặng (kg)</th>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td> < 64 </td>
+                        <td>90</td>
+                        <td>40 - 46</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>64 - 70</td>
+                        <td>92</td>
+                        <td>46 - 52</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>70 - 74</td>
+                        <td>94</td>
+                        <td>52 - 55</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>74-78</td>
+                        <td>96</td>
+                        <td>55 - 60</td>
+                    </tr>
+                    <tr>
+                        <td>XXL</td>
+                        <td>78 - 84</td>
+                        <td>98</td>
+                        <td>> 60</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Số lượng -->
+            <div class="quantity-selection">
+                <h3>Số lượng:</h3>
+                <div class="quantity-controls">
+                    <button id="decrease">-</button>
+                    <input type="number" id="quantity" value="1" min="1" max="10">
+                    <button id="increase">+</button>
+                </div>
+            </div>
+
+            <!-- Nút mua hàng -->
+            <div class="action-buttons">
+                <button class="add-to-cart">THÊM VÀO GIỎ HÀNG</button>
+                <button class="buy-now" onclick="scrollToOrderForm()">MUA NGAY</button>
+            </div>
+        </section>
+
+        <!-- Chi tiết sản phẩm -->
+        <section class="product-details">
+            <div class="details-header">
+                <h3>CHI TIẾT SẢN PHẨM</h3>
+            </div>
+            <div class="details-content">
+                <h4>1. GIỚI THIỆU SẢN PHẨM NỔI BẬT</h4>
+                <ul>
+                    <li>Sản phẩm: Quần Ống Rộng Kẻ Sọc</li>
+                    <li>Xuất xứ: Việt Nam</li>
+                    <li>Chất liệu: Vải Thô đũi cao cấp, mềm mại, không nhăn, không nhàu</li>
+                    <li>Form dáng: Ống rộng, cạp cao, dáng suông</li>
+                    <li>Kích cỡ: S (45-52kg), M (53-60kg), L (61-68kg), XL (69-75kg), XXL (76-85kg)</li>
+                    <li>Màu sắc: Sọc đen, Sọc hồng</li>
+                </ul>
+                
+                
+
+                <h4>2. CHI TIẾT SẢN PHẨM</h4>
+                <ul>
+                    <div class="product-detail-image">
+                        <img src="images/Vải.png" alt="Chi tiết quần ống rộng 1">
+                        <p>Chất liệu vải Thô đũi, không nhăn, không nhàu</p>
+                    </div>
+                    
+                    <div class="product-detail-image">
+                        <img src="images/hình 2.png" alt="Chi tiết quần ống rộng 2">
+                        <p>Họa tiết kẻ sọc tinh tế</p>
+                    </div>
+                    
+                    <div class="product-detail-image">
+                        <img src="images/hình 3.png" alt="Chi tiết quần ống rộng 3">
+                        <p>Form dáng ống rộng thời trang - siêu hack dáng</p>
+                    </div>    
+                </ul>
+
+                <h4>3. CAM KẾT TỪ THỜI TRANG AQUEEN</h4>
+                <ul>
+                    <li>🔖 Freeship cho đơn hàng >300k. 
+                    <li>📆 Đổi size/mẫu trong vòng 7 ngày từ lúc nhận hàng</li>
+                    <li>🔖 Sản phẩm phải còn nguyên tem, chưa giặt, chưa dùng</li>
+                    <li>🔁 Mỗi đơn chỉ hỗ trợ 1 lần đổi duy nhất</li>
+                    <li>📦 Khách tự chịu phí ship 2 chiều khi đổi mẫu hoặc đổi size</li>
+                </ul>
+
+                <h4>4. HƯỚNG DẪN BẢO QUẢN</h4>
+                <ul>
+                    <li>Giặt tay hoặc máy ở chế độ nhẹ nhàng</li>
+                    <li>Không sử dụng chất tẩy mạnh</li>
+                    <li>Không ngâm quần quá lâu</li>
+                    <li>Phơi trong bóng râm, tránh ánh nắng trực tiếp</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Đánh giá của khách hàng -->
+        <section class="customer-reviews">
+            <div class="reviews-header">
+                <h3>ĐÁNH GIÁ CỦA KHÁCH HÀNG</h3>
+                <div class="rating-summary">
+                    <span class="rating-score">4.9</span>
+                    <span class="rating-max">/5</span>
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="review-count">(74 bình luận)</span>
+                    <a href="#" class="view-more">Xem thêm</a>
+                </div>
+            </div>
+
+            <div class="review-list">
+                <!-- Đánh giá 1 -->
+                <div class="review-item">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="images/Hà Thu.jpg" alt="Hà Thu">
+                        </div>
+                        <div class="reviewer-name">Hà Thu</div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-details">
+                        <div class="product-variant">Mặt hàng: Size S </div>
+                        <div class="review-content">
+                            <p>Mặc đẹp lắm shop, lên dáng xinh cực kỳ. Chị em mua mạnh không hết nha, may em săn được</p>
+                        </div>
+                        <div class="review-images">
+                            <img src="images/review 1.jpg" alt="Ảnh đánh giá 1" class="review-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đánh giá 2 -->
+                <div class="review-item">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="images/Thanh Hằnggg.jpg" alt="Thanh Hằnggg">
+                        </div>
+                        <div class="reviewer-name">Thanh Hằnggg</div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-details">
+                        <div class="product-variant">Mặt hàng: Size XS- Đỏ, Đen, Xám</div>
+                        <div class="review-content">
+                            <p>Săn được cả hai em nó này đúng hợp ý. Xinh hết nấc, lại còn freeship nữa:></p>
+                        </div>
+                        <div class="review-images">
+                            <img src="images/review 2.jpg" alt="Ảnh đánh giá 1" class="review-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đánh giá 3 -->
+                <div class="review-item">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <img src="images/Vũ Thị Lý.jpg" alt="Vũ Thị Lý">
+                        </div>
+                        <div class="reviewer-name">Vũ Thị Lý</div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="review-details">
+                        <div class="product-variant">Mặt hàng: Size M</div>
+                        <div class="review-content">
+                            <p>Quần đẹp lắm, form dáng chuẩn, vải mềm và thoáng. Giao hàng nhanh!</p>
+                        </div>
+                        <div class="review-images">
+                            <img src="images/rv3.jpg" alt="Ảnh đánh giá 1" class="review-image">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="view-more-reviews">
+                    <button>XEM THÊM ĐÁNH GIÁ</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form đặt hàng -->
+        <section class="order-form" id="orderForm">
+            <div class="form-header">
+                <h3>ĐẶT HÀNG NGAY</h3>
+                <p>Điền thông tin để nhận hàng</p>
+            </div>
+            
+            <!-- Thông tin Flash Sale trong form -->
+            <div class="order-flash-sale">
+                <div class="order-flash-sale-header">
+                    <div class="order-flash-sale-title">
+                        <i class="fas fa-bolt"></i> FLASH SALE
+                    </div>
+                    <div class="order-countdown-container">
+                        <div class="order-countdown-label">Kết thúc sau:</div>
+                        <div class="order-countdown" id="orderCountdown">
+                            <div class="order-countdown-item">
+                                <span id="orderHours">02</span>
+                                <span class="order-countdown-label">Giờ</span>
+                            </div>
+                            <div class="order-countdown-item">
+                                <span id="orderMinutes">00</span>
+                                <span class="order-countdown-label">Phút</span>
+                            </div>
+                            <div class="order-countdown-item">
+                                <span id="orderSeconds">00</span>
+                                <span class="order-countdown-label">Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-price-container">
+                    <div class="order-price">
+                        <span class="order-current-price">199.000₫</span>
+                        <span class="order-original-price">299.000₫</span>
+                        <span class="order-discount-tag">-33%</span>
+                    </div>
+                </div>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="fullName">Họ và tên:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Địa chỉ:</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="orderSize">Kích thước:</label>
+                    <select id="orderSize" name="orderSize" required>
+                        <option value="">Chọn kích thước</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="orderColor">Màu sắc:</label>
+                    <select id="orderColor" name="orderColor" required>
+                        <option value="">Chọn màu sắc</option>
+                        <option value="Sọc đen">Sọc đen</option>
+                        <option value="Sọc hồng">Sọc hồng</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="orderQuantity">Số lượng:</label>
+                    <input type="number" id="orderQuantity" name="orderQuantity" value="1" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="note">Ghi chú:</label>
+                    <textarea 
+                        id="note" 
+                        name="note" 
+                        placeholder="Đặt nhiều size, nhiều loại thì ghi chú ở đây ạ..
+Ví dụ: Mua 2 size S, 1 size M..."
+                    ></textarea>
+                </div>
+                <div class="order-summary">
+                    <div class="summary-item">
+                        <span>Sản phẩm:</span>
+                        <span>Quần Ống Rộng Kẻ Sọc</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Đơn giá:</span>
+                        <span>199.000₫</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Số lượng:</span>
+                        <span id="summaryQuantity">1</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Tổng tiền:</span>
+                        <span id="totalPrice">199.000₫</span>
+                    </div>
+                </div>
+                <button type="submit" class="submit-order">ĐẶT HÀNG</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>THỜI TRANG AQUEEN</h3>
+                <p>Chuyên thời trang Công sở - Hợp Trend - Hợp Giá</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liên hệ</h3>
+                <p><i class="fas fa-phone"></i> Hotline: 0915 422 826</p>
+                <p><i class="fas fa-envelope"></i> Email: yasuo19502@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Mê Linh, Hà Nội</p>
+            </div>
+            <div class="footer-section">
+                <h3>Theo dõi chúng tôi</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 THỜI TRANG AQUEEN. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <!-- Popup thông báo -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h3>Đặt hàng thành công!</h3>
+            <p>Cảm ơn bạn đã đặt hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
