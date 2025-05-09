@@ -173,6 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
             orderDate: new Date().toLocaleString()
         };
         
+        console.log('Form data:', formData);
+        
         // Gửi dữ liệu đến Google Sheets thông qua Google Apps Script
         sendToGoogleSheets(formData);
     });
