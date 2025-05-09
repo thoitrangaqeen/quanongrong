@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function sendToGoogleSheets(data) {
         // URL của Google Apps Script Web App
         // CHÚ Ý: Bạn cần thay thế URL này bằng URL của Google Apps Script Web App của bạn
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzTt4KvlMIhkiqa7HPyp9n55sp38vpuWA1Q7QytwkM/dev';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxEh1Kw_rzz51RR_EVsExqLg5pVNZmMt5Jk-pOL_hb-Cvcxo-b_1e6FIk_t6aE3VUxK/exec';
         
         // Tạo dữ liệu gửi đi
         const formDataToSend = new FormData();
