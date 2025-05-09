@@ -1,0 +1,7 @@
+Đây là thư mục chứa hình ảnh sản phẩm. Bạn cần thêm các hình ảnh sau vào thư mục này:
+- pants1.jpg
+- pants2.jpg
+- pants3.jpg
+- pants4.jpg
+
+Các hình ảnh này nên là hình ảnh quần ống rộng kẻ sọc từ các góc độ khác nhau.
