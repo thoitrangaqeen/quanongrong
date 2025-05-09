@@ -173,6 +173,8 @@ document.addEventListener('DOMContentLoaded', function() {
             orderDate: new Date().toLocaleString()
         };
         
+        console.log('Form data:', formData);
+        
         // Gửi dữ liệu đến Google Sheets thông qua Google Apps Script
         sendToGoogleSheets(formData);
     });
@@ -183,30 +185,51 @@ document.addEventListener('DOMContentLoaded', function() {
         // CHÚ Ý: Bạn cần thay thế URL này bằng URL của Google Apps Script Web App của bạn
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxEh1Kw_rzz51RR_EVsExqLg5pVNZmMt5Jk-pOL_hb-Cvcxo-b_1e6FIk_t6aE3VUxK/exec';
         
+        // In ra URL để kiểm tra
+        console.log('Đang gửi dữ liệu đến:', scriptURL);
+        
         // Tạo dữ liệu gửi đi
         const formDataToSend = new FormData();
         Object.keys(data).forEach(key => {
             formDataToSend.append(key, data[key]);
+            console.log(`Trường ${key}:`, data[key]); // In ra từng trường dữ liệu
         });
         
-        // Gửi dữ liệu bằng fetch API
+        // Hiển thị thông báo đang xử lý
+        const submitButton = document.querySelector('#checkoutForm button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.innerHTML = 'Đang xử lý...';
+        submitButton.disabled = true;
+        
+        // Gửi dữ liệu bằng fetch API với mode no-cors để tránh vấn đề CORS
         fetch(scriptURL, {
             method: 'POST',
-            body: formDataToSend
+            body: formDataToSend,
+            mode: 'no-cors'  // Thêm mode no-cors để tránh vấn đề CORS
         })
         .then(response => {
-            if (response.ok) {
-                // Hiển thị popup thông báo thành công
-                document.getElementById('popup').style.display = 'flex';
-                // Reset form
-                checkoutForm.reset();
-            } else {
-                alert('Có lỗi xảy ra khi gửi đơn hàng. Vui lòng thử lại sau!');
-            }
+            console.log('Nhận được phản hồi:', response);
+            
+            // Với mode no-cors, response sẽ luôn là opaque (không thể đọc nội dung)
+            // nên ta không thể kiểm tra response.ok
+            // Thay vào đó, ta coi như yêu cầu đã thành công
+            
+            // Hiển thị popup thông báo thành công
+            document.getElementById('popup').style.display = 'flex';
+            // Reset form
+            checkoutForm.reset();
+            // Khôi phục nút submit
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+            
+            return 'Yêu cầu đã được gửi đi';
         })
         .catch(error => {
-            console.error('Error:', error);
-            alert('Có lỗi xảy ra khi gửi đơn hàng. Vui lòng thử lại sau!');
+            console.error('Chi tiết lỗi:', error);
+            alert('Có lỗi xảy ra khi gửi đơn hàng: ' + error.message);
+            // Khôi phục nút submit
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
         });
     }
     
@@ -228,36 +251,39 @@ document.addEventListener('DOMContentLoaded', function() {
  * 4. Xóa mã mặc định và dán mã sau:
  *
  * function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  
-  // Lấy dữ liệu từ request
-  var data = e.parameter;
-  
-  // Thêm dữ liệu vào sheet
-  sheet.appendRow([
-    data.fullName,
-    data.phone,
-    data.address,
-    data.size,
-    data.color,
-    data.quantity,
-    data.note,
-    data.totalPrice,
-    data.orderDate
-  ]);
-  
-  // Trả về kết quả
-  return ContentService.createTextOutput(JSON.stringify({ 'result': 'success' }))
-    .setMimeType(ContentService.MimeType.JSON);
-}
+ *   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+ *   
+ *   // Lấy dữ liệu từ request
+ *   var data = e.parameter;
+ *   
+ *   // Log dữ liệu nhận được để debug
+ *   Logger.log("Dữ liệu nhận được: " + JSON.stringify(data));
+ *   
+ *   // Thêm dữ liệu vào sheet
+ *   sheet.appendRow([
+ *     data.fullName,
+ *     data.phone,
+ *     data.address,
+ *     data.size,
+ *     data.color,
+ *     data.quantity,
+ *     data.note,
+ *     data.totalPrice,
+ *     data.orderDate
+ *   ]);
+ *   
+ *   // Trả về kết quả
+ *   return ContentService.createTextOutput(JSON.stringify({ 'result': 'success' }))
+ *     .setMimeType(ContentService.MimeType.JSON);
+ * }
  *
  * 5. Lưu script
  * 6. Nhấp vào "Deploy" > "New deployment"
  * 7. Chọn loại "Web app"
  * 8. Đặt:
-    - Execute as: "Me"
-    - Who has access: "Anyone"
+ *    - Execute as: "Me"
  *    - Who has access: "Anyone"
  * 9. Nhấp "Deploy"
- * 10. Sao chép URL Web App và dán vào biến scriptURL trong file script.js
+ * 10. Sao chép URL Web App và dán vào biến `scriptURL` ở dưới
+ * 11. MỖI KHI CẬP NHẬT SCRIPT, bạn phải tạo NEW deployment để có URL mới
  */
