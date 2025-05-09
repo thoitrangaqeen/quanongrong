@@ -181,13 +181,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function sendToGoogleSheets(data) {
         // URL của Google Apps Script Web App
         // CHÚ Ý: Bạn cần thay thế URL này bằng URL của Google Apps Script Web App của bạn
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzxj9jgOuodDGoRS4IRLxU2fERKT0nfFfh2N-_71cgHewVhBVGQ_wlxh41svwB-9fiN/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzc8-4eh07i22iA-wDG6ORjBho2GZzj_2Q9Sat-XKIvVslC7HMoSDPJHNquTZ92Ags/exec';
         
         // Tạo dữ liệu gửi đi
         const formDataToSend = new FormData();
         Object.keys(data).forEach(key => {
             formDataToSend.append(key, data[key]);
         });
+        
+        // Hiển thị thông báo đang xử lý
+        const submitButton = document.querySelector('#checkoutForm button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.innerHTML = 'Đang xử lý...';
+        submitButton.disabled = true;
         
         // Gửi dữ liệu bằng fetch API
         fetch(scriptURL, {
@@ -196,17 +202,25 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(response => {
             if (response.ok) {
-                // Hiển thị popup thông báo thành công
-                document.getElementById('popup').style.display = 'flex';
-                // Reset form
-                checkoutForm.reset();
-            } else {
-                alert('Có lỗi xảy ra khi gửi đơn hàng. Vui lòng thử lại sau!');
+                return response.text();
             }
+            throw new Error('Lỗi khi gửi dữ liệu');
+        })
+        .then(result => {
+            // Hiển thị popup thông báo thành công
+            document.getElementById('popup').style.display = 'flex';
+            // Reset form
+            checkoutForm.reset();
+            // Khôi phục nút submit
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
         })
         .catch(error => {
             console.error('Error:', error);
             alert('Có lỗi xảy ra khi gửi đơn hàng. Vui lòng thử lại sau!');
+            // Khôi phục nút submit
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
         });
     }
     
